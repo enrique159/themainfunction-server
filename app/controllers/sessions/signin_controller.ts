@@ -6,6 +6,6 @@ export default class SignInController {
     const { email, password } = request.only(['email', 'password'])
     const user = await User.verifyCredentials(email, password)
     await auth.use('web').login(user)
-    return user
+    return { data: user }
   }
 }

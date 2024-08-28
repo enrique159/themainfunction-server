@@ -12,7 +12,7 @@ export default class UpdateUserController {
       user.merge(payload)
       await user.save()
 
-      return ctx.response.ok(user)
+      return ctx.response.ok({ data: user })
     } catch (error) {
       return ctx.response.status(error?.status || 500).send({ errors: [error] })
     }

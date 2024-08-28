@@ -10,7 +10,7 @@ export default class CreateUserController {
       let user = new User().fill(payload)
       user = await user.save()
 
-      return ctx.response.ok(user)
+      return ctx.response.ok({ data: user })
     } catch (error) {
       return ctx.response.badRequest({ message: 'Error creating user', error })
     }
