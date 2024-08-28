@@ -1,6 +1,6 @@
 {
   "name": "the-main-function-server",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "private": true,
   "type": "module",
   "license": "UNLICENSED",
@@ -29,7 +29,8 @@
     "#database/*": "./database/*.js",
     "#start/*": "./start/*.js",
     "#tests/*": "./tests/*.js",
-    "#config/*": "./config/*.js"
+    "#config/*": "./config/*.js",
+    "#domain/*": "./domain/*.js"
   },
   "devDependencies": {
     "@adonisjs/assembler": "^7.7.0",
