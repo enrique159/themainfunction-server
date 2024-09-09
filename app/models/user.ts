@@ -5,6 +5,7 @@ import { BaseModel, beforeCreate, column, hasMany } from '@adonisjs/lucid/orm'
 import { withAuthFinder } from '@adonisjs/auth/mixins/lucid'
 import crypto from 'node:crypto'
 import Post from '#models/post'
+import PostScript from '#models/post_script'
 import Comment from '#models/comment'
 import { type HasMany } from '@adonisjs/lucid/types/relations'
 
@@ -63,6 +64,9 @@ export default class User extends compose(BaseModel, AuthFinder) {
 
   @hasMany(() => Comment)
   declare comments: HasMany<typeof Comment>
+
+  @hasMany(() => PostScript)
+  declare postScripts: HasMany<typeof PostScript>
 
   @beforeCreate()
   static assignUuid(user: User) {

@@ -12,6 +12,8 @@ const CreatePostControler = () => import('#controllers/posts/create_post_control
 const GetPostsController = () => import('#controllers/posts/get_posts_controller')
 const CreatePostCommentController = () =>
   import('#controllers/comments/create_post_comment_controller')
+const CreatePostScriptController = () =>
+  import('#controllers/post_scripts/create_post_script_controller')
 
 router.get('/', async () => {
   return { server: 'TheMainFunction Server API', version: env.get('VERSION') }
@@ -30,3 +32,5 @@ router.post('/posts', [CreatePostControler]).use(middleware.auth())
 router.get('/posts', [GetPostsController]).use(middleware.auth())
 // COMMENTS
 router.post('/posts/:postId/comments', [CreatePostCommentController]).use(middleware.auth())
+// POST SCRIPTS
+router.post('/posts/:postId/scripts', [CreatePostScriptController]).use(middleware.auth())

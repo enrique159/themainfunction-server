@@ -3,6 +3,7 @@ import { type HasMany, type BelongsTo } from '@adonisjs/lucid/types/relations'
 import { BaseModel, beforeCreate, belongsTo, column, hasMany } from '@adonisjs/lucid/orm'
 import User from '#models/user'
 import Comment from '#models/comment'
+import PostScript from '#models/post_script'
 import crypto from 'node:crypto'
 import { type TPrivacyPost } from '#domain/PrivacyPost'
 
@@ -40,6 +41,9 @@ export default class Post extends BaseModel {
 
   @hasMany(() => Comment)
   declare comments: HasMany<typeof Comment>
+
+  @hasMany(() => PostScript)
+  declare scripts: HasMany<typeof PostScript>
 
   @beforeCreate()
   static assignUuid(post: Post) {
